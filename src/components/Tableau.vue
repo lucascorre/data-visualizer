@@ -1,20 +1,28 @@
 <template>
-  <div class="container">
-    <p class="mt-3">Current Page: {{ currentPage }}</p>
-
+  <div class="mt-3">
     <b-table striped hover
         id="people-table"
         ref="peopleTable"
-        :items="items"
-        :fields="fields"
         :per-page="perPage"
         :current-page="currentPage"
-        small>
+        :items="items"
+        :fields="fields"
+        small
+        dark
+        bordered
+        @row-clicked="onrowclicked">
     </b-table>
+
+    <b-collapse id="collapse-1" class="mt-2">
+      <b-card>
+        <p class="card-text">Collapse contents Here</p>
+      </b-card>
+    </b-collapse>
 
     <div class="pagination justify-content-center">
         <b-pagination
         v-model="currentPage"
+        pills
         :total-rows="rows"
         :per-page="perPage"
         aria-controls="people-table">
@@ -46,9 +54,16 @@ export default {
         {
           key: 'gender',
           sortable: true
+        },
+        {
+          key: 'preferences',
+          sortable: true
         }
       ],
-      items: []
+      items: [],
+      personne_selection: {
+
+      }
     }
   },
   methods: {
@@ -57,6 +72,12 @@ export default {
       fetch(url)
         .then((dataJson) => dataJson.json())
         .then((data) => (this.items = data.people))
+    },
+    onrowclicked (index, row) {
+      this.personne_selection = index
+      console.log('index:', index)
+      console.log('row:', row)
+      onclick('v-b-toggle.collapse-1')
     }
   },
   beforeMount () {
