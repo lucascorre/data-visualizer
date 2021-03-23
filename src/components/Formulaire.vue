@@ -51,6 +51,16 @@
         </b-form-group>
 
         <b-form-group
+        id="form-country"
+        label="Country"
+        label-for="input-1"
+        :invalid-feedback="invalidFeedback"
+        :state="state"
+        >
+        <b-form-input id="input-1" v-model="selectionPersonne.contact.country" :state="state" trim></b-form-input>
+        </b-form-group>
+
+        <b-form-group
         id="form-city"
         label="City"
         label-for="input-1"
