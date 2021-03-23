@@ -8,7 +8,6 @@
     >
     </b-form-input>
     <b-input-group-append>
-      <b-button variant="dark">Formulaire</b-button>
       <b-button variant="dark" v-on:click="routeToGraphique">Graphique</b-button>
     </b-input-group-append>
   </b-input-group>

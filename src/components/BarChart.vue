@@ -6,11 +6,25 @@ export default {
   props: {
     data: Object
   },
+  data: function () {
+    return {
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
   mounted () {
-    this.renderChart(
-      this.data,
-      { responsive: true, maintainAspectRatio: false }
-    )
+    this.renderChart(this.data, this.options)
   }
 }
 </script>

@@ -56,7 +56,7 @@ export default {
         labels: ['Dog', 'Cat', 'Bird', 'Rat'],
         datasets: [
           {
-            backgroundColor: ['#FFD8FF', '#A5C400', '#00D8FF', '#00D8B5'],
+            backgroundColor: ['#005500', '#5C0000', '#000066', '#555555'],
             data: this.triPetData
           }
         ]
@@ -87,7 +87,8 @@ export default {
         labels: ['Red', 'Blue', 'Green', 'Yellow', 'Orange', 'Purple'],
         datasets: [
           {
-            backgroundColor: ['#FF0000', '#0000FF', '#00FF00', '#00D8B5', '#55FF12', '#98FF87'],
+            label: 'Favorite Color',
+            backgroundColor: ['#FF0000', '#0000FF', '#00FF00', '#FFFF00', '#FF6600', '#9900FF'],
             data: this.triColorData
           }
         ]
