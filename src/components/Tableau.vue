@@ -72,6 +72,21 @@ export default {
           sortable: true
         },
         {
+          key: 'contact.email',
+          label: 'Email',
+          sortable: true
+        },
+        {
+          key: 'contact.phone',
+          label: 'Phone',
+          sortable: true
+        },
+        {
+          key: 'contact.city',
+          label: 'City',
+          sortable: true
+        },
+        {
           key: 'preferences.favorite_pet',
           label: 'Favorite Pet',
           sortable: true
