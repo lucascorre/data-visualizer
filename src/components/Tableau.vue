@@ -9,8 +9,11 @@
     </b-form-input>
     <b-input-group-append>
       <b-button variant="dark" v-on:click="routeToGraphique">Graphique</b-button>
+      <b-button variant="dark" v-on:click="onJsonButton">Export JSON</b-button>
     </b-input-group-append>
   </b-input-group>
+
+  <formulaire :selection-personne="personne_selection"/>
 
   <div class="mt-3">
     <b-table striped hover
@@ -49,8 +52,12 @@
 </template>
 
 <script>
+import Formulaire from './Formulaire.vue'
 export default {
   name: 'Tableau',
+  components: {
+    Formulaire
+  },
   data: function () {
     return {
       perPage: 20,
@@ -125,11 +132,19 @@ export default {
           this.rows = this.items.length
         })
     },
-    onrowclicked (index, row) {
-      this.personne_selection = index
+    onJsonButton () {
+      // BY JEAN Louis
+      let dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.items))
+      let dlAnchorElem = document.createElement('a')
+      dlAnchorElem.setAttribute('href', dataStr)
+      dlAnchorElem.setAttribute('download', 'peoples.json')
+      dlAnchorElem.click()
+    },
+    onrowclicked (row, index) {
+      this.personne_selection = row
       console.log('index:', index)
       console.log('row:', row)
-      onclick('v-b-toggle.collapse-1')
+      this.$bvModal.show('formulaire')
     },
     onFiltered (filteredItems) {
       this.rows = filteredItems.length
