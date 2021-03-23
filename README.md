@@ -1,3 +1,5 @@
+IMPORTANT ! Bonnici Zoé m'a beaucoup aidé pour le projet, pour tout ce qui est boostrap-vue et chartjs.
+
 # data-visualizer
 
 > A Vue.js project
